@@ -123,6 +123,7 @@ const Assessment = () => {
   const [validationErrors, setValidationErrors] = useState({});
   const [isRoadmapExits, setIsRoadmapExits] = useState(false);
   const router = useRouter();
+  
 
   // Section definitions
   const sections = [
@@ -479,7 +480,7 @@ const Assessment = () => {
           uid: user?.uid,
           recommendations: path?.career_recommendations,
         });
-        console.log(JSON.stringify(path))
+        console.log(path);
         if (result) {
           toast.success("Roadmap Generated Successfully");
           // setRoadmapData(text);

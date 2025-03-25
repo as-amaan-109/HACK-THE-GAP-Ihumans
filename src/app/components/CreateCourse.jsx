@@ -1,12 +1,12 @@
 "use client";
 
 import { Accordion, AccordionItem, Button } from "@heroui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { createCourse } from "@/firebase/courses/write";
 import { useSelector } from "react-redux";
 import CustomBtn from "./CustomBtn";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { Brain, BrainCircuit, Trash } from "lucide-react";
 import { generateCourse } from "@/models/generateCourse";
 import EditChapters from "./EditChapters";
@@ -33,6 +33,10 @@ const CreateCourse = () => {
     mergeRequests: [],
   });
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const gCourse = searchParams.get("c");
+
+  console.log(gCourse);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -111,6 +115,11 @@ const CreateCourse = () => {
       setIsLoading(false);
     }
   };
+  useEffect(() => {
+    if (gCourse) {
+      setAiPrompt(`generate course on ${gCourse}`);
+    }
+  }, [gCourse]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 to-gray-100 py-10 px-4 sm:px-6 lg:px-8">

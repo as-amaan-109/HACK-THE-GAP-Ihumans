@@ -12,7 +12,7 @@ import {
 } from "@heroui/react";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
-import { ArrowRight, Clapperboard, GitBranchPlus, TvMinimalPlay } from "lucide-react";
+import { ArrowRight, AudioWaveform, AudioWaveformIcon, BrainCircuit, BrainCircuitIcon, Clapperboard, GitBranchPlus, TvMinimalPlay } from "lucide-react";
 import {
   GoogleAuthProvider,
   onAuthStateChanged,
@@ -64,10 +64,10 @@ const Header = () => {
         <NavbarContent>
          
           <NavbarBrand>
-            <Link href="/">
-              <img src="/horizon-logo.png" alt="logo" className="h-10" />
-            </Link>
+            <Link href="/" className="text-purple-700 flex justify-center items-center gap-2">
+            <BrainCircuitIcon size={25}  />
             <p className="font-bold text-inherit">Horizon</p>
+            </Link>
           </NavbarBrand>
         </NavbarContent>
 
